@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PsychologAI — AI and the Human Mind</title>
+<style>
+  :root {
+    --bg: #0a1630;
+    --bg-soft: #101f42;
+    --card: #14264e;
+    --text: #e8eefc;
+    --text-muted: #a9b8d8;
+    --violet: #a78bfa;
+    --cyan: #22d3ee;
+    --gold: #facc15;
+    --border: #223a6b;
+    --radius: 14px;
+    --nav-height: 68px;
+    --side-band: 100px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 17px;
+    position: relative;
+  }
+
+  /* ---------- Side bands (Utopia / Dystopia) ---------- */
+  .band {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: var(--side-band);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .band-left {
+    left: 0;
+    background: linear-gradient(180deg, #14532d 0%, #166534 40%, #65a30d 100%);
+    opacity: 0.25;
+  }
+
+  .band-right {
+    right: 0;
+    background: linear-gradient(180deg, #2e1065 0%, #6d28d9 50%, #a855f7 100%);
+    opacity: 0.4;
+  }
+
+  @media (max-width: 1300px) {
+    .band { display: none; }
+  }
+
+  /* ---------- Content wrapper ---------- */
+  .page {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---------- Navigation ---------- */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: rgba(10, 22, 48, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .nav-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--cyan);
+    margin-right: 24px;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar { display: none; }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: color 0.2s, background-color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    color: var(--cyan);
+    background-color: rgba(34, 211, 238, 0.1);
+  }
+
+  /* ---------- Sections ---------- */
+  section {
+    padding: 100px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    scroll-margin-top: calc(var(--nav-height) + 8px);
+  }
+
+  .hero {
+    padding-top: calc(var(--nav-height) + 70px);
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    line-height: 1.25;
+    margin: 0 0 36px;
+    padding-bottom: 0.1em;
+    background: linear-gradient(90deg, var(--cyan), var(--violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin: 0 0 24px;
+    color: var(--text);
+    padding-bottom: 14px;
+    position: relative;
+  }
+
+  h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 64px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--cyan), var(--violet));
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin: 0 0 8px;
+    color: var(--cyan);
+  }
+
+  p { color: var(--text-muted); }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--text);
+    max-width: 680px;
+    margin: 0 auto 28px;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 24px;
+  }
+
+  /* ---------- Grids ---------- */
+  .grid {
+    display: grid;
+    gap: 18px;
+    margin-top: 28px;
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Cards ---------- */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    transition: transform 0.25s, border-color 0.25s, background-color 0.25s, box-shadow 0.25s;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--violet);
+    background: var(--bg-soft);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .card p { margin: 0; font-size: 0.95rem; }
+
+  .emoji { font-size: 1.6rem; display: block; margin-bottom: 10px; }
+
+  /* ---------- Choice list ---------- */
+  .choice-list {
+    list-style: none;
+    padding: 0;
+    margin: 28px 0 0;
+  }
+
+  .choice-list li {
+    background: var(--bg-soft);
+    border-left: 3px solid var(--violet);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    color: var(--text);
+    font-size: 0.98rem;
+  }
+
+  /* ---------- Final ---------- */
+  .final {
+    text-align: center;
+    padding-bottom: 60px;
+  }
+
+  .final blockquote {
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 20px auto 0;
+    max-width: 760px;
+    color: var(--text);
+    border: none;
+  }
+
+  .final blockquote span { color: var(--cyan); }
+
+  /* ---------- Beyond (Choice + FAQ) ---------- */
+  .beyond-subtitle {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin: 0 0 36px;
+  }
+
+  .beyond h3 {
+    font-size: 1.4rem;
+    color: var(--text);
+    margin: 48px 0 16px;
+  }
+
+  .faq details {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    padding: 0 20px;
+    transition: border-color 0.2s;
+  }
+
+  .faq details[open] {
+    border-color: var(--violet);
+  }
+
+  .faq summary {
+    cursor: pointer;
+    padding: 18px 0;
+    font-weight: 600;
+    color: var(--text);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .faq summary::-webkit-details-marker { display: none; }
+
+  .faq summary::after {
+    content: "+";
+    color: var(--cyan);
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .faq details[open] summary::after {
+    content: "−";
+  }
+
+  .faq summary:hover {
+    color: var(--cyan);
+  }
+
+  .faq details p {
+    margin: 0 0 20px;
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 24px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  footer a { color: var(--cyan); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ---------- Back to top ---------- */
+  .back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: var(--gold);
+    color: var(--bg);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, visibility 0.25s, background-color 0.25s;
+    z-index: 999;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background: #fde047;
+  }
+
+  /* ---------- Mobile tweaks ---------- */
+  @media (max-width: 640px) {
+    :root { --nav-height: 60px; }
+    .nav { padding: 0 14px; }
+    .nav-brand { font-size: 0.95rem; margin-right: 14px; }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 0.85rem; }
+    section { padding: 72px 18px; }
+    .hero { padding-top: calc(var(--nav-height) + 50px); }
+  }
+</style>
+</head>
+<body>
+
+  <div class="band band-left"></div>
+  <div class="band band-right"></div>
+
+  <div class="page">
+
+  <nav class="nav">
+    <span class="nav-brand">PsychologAI</span>
+    <ul class="nav-links">
+      <li><a href="#ai-and-us">AI and Us</a></li>
+      <li><a href="#inside">Inside</a></li>
+      <li><a href="#utopia">Utopia</a></li>
+      <li><a href="#dystopia">Dystopia</a></li>
+      <li><a href="#beyond">Beyond</a></li>
+      <li><a href="#final">Final Question</a></li>
+    </ul>
+  </nav>
+
+  <!-- AI AND US (HERO) -->
+  <section id="ai-and-us" class="hero">
+    <h1>The Future: AI and Us <em>or</em> AI vs. Us?</h1>
+    <p class="lead">
+      Artificial intelligence is changing much more than the way we do things.
+      Little by little, it may also be transforming how we think, how we relate
+      to others, and even how we see ourselves.
+    </p>
+    <p class="lead">
+      On this site, we invite you to explore three aspects that are more
+      connected than they appear: our mind, the risks, and the opportunities
+      that AI brings.
+    </p>
+    <p class="lead">
+      We are not neutral about AI. We have to be part of the change.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- INSIDE -->
+  <section id="inside">
+    <h2>Inside</h2>
+    <p>
+      Every tool we use changes the way we think. Google Maps made navigation
+      easier, but it also means we rely less on our own memory and sense of
+      direction. AI takes this further: it can remember, create, solve problems
+      and even help us make decisions. What happens when we stop doing some of
+      these things for ourselves?
+    </p>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <span class="emoji">🧩</span>
+        <h3>Cognitive Dependence</h3>
+        <p>
+          AI can remember information, solve problems and make decisions in
+          seconds. The more we rely on it, the less often we may practise those
+          mental processes ourselves. Are we becoming more efficient, or simply
+          doing less thinking?
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">💭</span>
+        <h3>Emotional Dependence</h3>
+        <p>
+          People are increasingly using AI to explore emotions, personal problems
+          and difficult decisions. It can offer a space to reflect without
+          judgement, but what happens when a system always listens, never tires,
+          and is designed to respond to us? Are we starting to replace human
+          conversation with a machine?
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">🎨</span>
+        <h3>Creativity</h3>
+        <p>
+          AI can help us generate ideas, images and possibilities that we might
+          not have reached alone. But when millions of people draw from the same
+          tools and patterns, could greater creative possibility also lead to
+          less originality?
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">👁️</span>
+        <h3>Reality and Trust</h3>
+        <p>
+          With the rise of AI-generated videos, images and cloned voices, how do
+          we know whether what we see, hear or read was created by a person or a
+          machine?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- UTOPIA -->
+  <section id="utopia">
+    <h2>Utopia</h2>
+    <p>
+      AI can also augment human capabilities. The same technology that raises
+      real risks can widen access, support learning and free up time.
+    </p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="emoji">📚</span>
+        <h3>Personalised learning</h3>
+        <p>
+          A patient tutor available at any hour, adapting to the pace of the
+          person learning.
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">♿</span>
+        <h3>Accessibility</h3>
+        <p>
+          Transcription, translation, description and voice tools that open
+          doors for people who were previously excluded.
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">🔬</span>
+        <h3>Research and health</h3>
+        <p>
+          Pattern-finding at a scale humans cannot manage, supporting diagnosis
+          and discovery.
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">🤝</span>
+        <h3>Support, not substitute</h3>
+        <p>
+          Mental health tools can complement professional care. They are not a
+          replacement for a qualified human.
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">⏳</span>
+        <h3>Time</h3>
+        <p>
+          Automating repetitive work can return hours to the things only people
+          can do.
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">🌍</span>
+        <h3>Connection</h3>
+        <p>
+          Breaking down language barriers and helping people communicate who
+          otherwise could not.
+        </p>
+      </div>
+    </div>
+
+    <p style="margin-top:32px; font-size:1.05rem; color:var(--text);">
+      Does AI make us less human, or give us more time to be human?
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DYSTOPIA -->
+  <section id="dystopia">
+    <h2>Dystopia</h2>
+    <p class="beyond-subtitle">
+      Will AI be the god we hope will save us, or the beast of the apocalypse?
+    </p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="emoji">🧠</span>
+        <h3>AGI and Self-Improvement</h3>
+        <p>
+          What happens if AI can improve itself faster than humans can
+          understand or control?
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">💡</span>
+        <h3>Consciousness and Rights</h3>
+        <p>
+          If an AI could have subjective experiences, would it deserve rights?
+          And who decides?
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">🔮</span>
+        <h3>AI as Oracle</h3>
+        <p>
+          What if we stop deciding for ourselves and simply ask the machine?
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">🎭</span>
+        <h3>Loss of Agency</h3>
+        <p>
+          What if the most important decisions are made by systems no one fully
+          understands?
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">🏢</span>
+        <h3>Corporate Control</h3>
+        <p>
+          The direction of this technology is set by a small number of companies.
+          Whose interests are built into the defaults?
+        </p>
+      </div>
+      <div class="card">
+        <span class="emoji">🌫️</span>
+        <h3>Soft Dystopia</h3>
+        <p>
+          A world that is comfortable, safe, and where nobody thinks for
+          themselves anymore.
+        </p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:36px;">Imagined Futures</h3>
+    <p>
+      Dystopia is a thought experiment, not a prediction. Each scenario below
+      asks a different question about where a trend could lead if nobody
+      intervened.
+    </p>
+    <ul class="choice-list">
+      <li><strong>The comfortable fog.</strong> Everyone has a personal assistant that answers everything, so no one ever has to sit with an unanswered question.</li>
+      <li><strong>The echo chamber.</strong> Every conversation is tailored so precisely that we never encounter an idea that genuinely challenges us.</li>
+      <li><strong>The invisible editor.</strong> We stop being able to tell which of our own opinions we actually formed.</li>
+      <li><strong>The substitute.</strong> AI becomes the first place people go for comfort, and human relationships become optional.</li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BEYOND (CHOICE + FAQ) -->
+  <section id="beyond" class="beyond">
+    <h2>Beyond</h2>
+    <p class="beyond-subtitle">What do we do with what we know?</p>
+
+    <h3>The Choice</h3>
+    <p>
+      Assistance and dependence are not the same thing. Read each situation
+      below and ask yourself honestly: would you hand this over?
+    </p>
+
+    <ul class="choice-list">
+      <li>Would you let AI choose your next career?</li>
+      <li>Would you let AI write a difficult personal message for you?</li>
+      <li>Would you let AI decide what news you should read?</li>
+      <li>Would you let AI recommend who you should date?</li>
+      <li>Would you let AI help you make a medical decision?</li>
+      <li>Would you let AI be your first source of emotional support?</li>
+    </ul>
+
+    <p style="margin-top:24px;">
+      There is no score and no diagnosis. The point is simply to notice where
+      your own line sits, and whether it moves.
+    </p>
+
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <details>
+        <summary>Can AI really understand how I feel?</summary>
+        <p>
+          No. AI can recognise patterns in language and respond in ways that feel
+          empathetic, but it has no feelings, no lived experience, and no real
+          understanding. It can be a useful sounding board, but it is not a
+          substitute for a person who knows you.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is using AI for emotional support a bad thing?</summary>
+        <p>
+          Not automatically. Many people find it helpful for organising their
+          thoughts or talking through a problem at 3 a.m. The risk appears when
+          it becomes the only place someone goes, or when it replaces
+          professional care that is actually needed.
+        </p>
+      </details>
+
+      <details>
+        <summary>Does AI make us less creative?</summary>
+        <p>
+          It can go either way. Used as a tool, it can help us explore ideas
+          faster and try things we would not have tried alone. Used as a
+          shortcut, it can nudge everyone toward the same average answer. The
+          difference is in how we use it.
+        </p>
+      </details>
+
+      <details>
+        <summary>Should I worry about becoming dependent on AI?</summary>
+        <p>
+          It is worth paying attention to. Dependence usually creeps in quietly:
+          you start by asking occasionally, then regularly, then always. A useful
+          question to ask yourself: could I still do this without it, if I had to?
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FINAL QUESTION -->
+  <section id="final" class="final">
+    <h2>Final Question</h2>
+    <blockquote>
+      How much of your thinking<br>
+      would you give to <span>AI</span>?
+    </blockquote>
+  </section>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">AI</button>
+
+  <footer>
+    <p>
+      PsychologAI, a student project for an AI Introduction Course.<br>
+      Contact: <a href="mailto:hello@example.com">hello@example.com</a>
+    </p>
+  </footer>
+
+  </div><!-- /.page -->
+
+  <script>
+    (function () {
+      var btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>
