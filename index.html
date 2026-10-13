@@ -178,7 +178,24 @@
     margin: 0 auto 28px;
     font-weight: 500;
   }
+  .cta {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 14px 28px;
+    background: var(--cyan);
+    color: var(--bg);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    border-radius: 999px;
+    transition: background-color 0.2s, transform 0.2s;
+  }
 
+  .cta:hover {
+    background: var(--violet);
+    transform: translateY(-2px);
+  }
   .lead {
     font-size: 1.15rem;
     color: var(--text);
@@ -422,13 +439,9 @@
       to others, and even how we see ourselves.
     </p>
     <p class="lead">
-      On this site, we invite you to explore three aspects that are more
-      connected than they appear: our mind, the risks, and the opportunities
-      that AI brings.
-    </p>
-    <p class="lead">
       We are not neutral about AI. We have to be part of the change.
     </p>
+    <a href="#inside" class="cta">Start exploring →</a>
   </section>
 
   <div class="divider"></div>
