@@ -89,6 +89,7 @@
     color: var(--cyan);
     margin-right: 24px;
     white-space: nowrap;
+    text-decoration: none;
   }
 
   .nav-links {
@@ -309,7 +310,9 @@
     margin: 20px auto 0;
     max-width: 760px;
     color: var(--text);
-    border: none;
+    border: 0;
+    border-left: 0;
+    padding: 0;
   }
 
   .final blockquote span { color: var(--cyan); }
@@ -445,20 +448,19 @@
   <div class="page">
 
   <nav class="nav">
-    <span class="nav-brand">PsychologAI</span>
+    <a href="index.html" class="nav-brand">PsychologAI</a>
     <ul class="nav-links">
-      <li><a href="#invisible-influence">The Invisible Influence</a></li>
-      <li><a href="#human-connection">The Human Connection</a></li>
-      <li><a href="#thinking-mind">The Thinking Mind</a></li>
-      <li><a href="#creativity-identity">Creativity and Identity</a></li>
-      <li><a href="#future-human">The Future of Being Human</a></li>
-      <li><a href="#beyond">Beyond</a></li>
-      <li><a href="#final">Final Question</a></li>
+      <li><a href="inside.html">Inside</a></li>
+      <li><a href="utopia.html">Utopia</a></li>
+      <li><a href="dystopia.html">Dystopia</a></li>
+      <li><a href="beyond.html">Beyond</a></li>
+      <li><a href="ai-and-us.html">AI and Us</a></li>
+      <li><a href="final-question.html">Final Question</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
-  <section id="ai-and-us" class="hero">
+  <section id="hero" class="hero">
     <h1>The Future: AI and Us <em>or</em> AI vs. Us?</h1>
     <p class="tagline">What happens to us when we let AI do more of our thinking?</p>
     <p class="lead">
@@ -469,17 +471,26 @@
     <p class="lead">
       We are not neutral about AI. We have to be part of the change.
     </p>
-    <a href="#invisible-influence" class="cta">Start exploring →</a>
+    <a href="inside.html" class="cta">Start exploring →</a>
   </section>
 
   <div class="divider"></div>
 
-  <!-- 01. THE INVISIBLE INFLUENCE -->
+  <!-- THE INVISIBLE INFLUENCE -->
   <section id="invisible-influence">
-    <h2>01. The Invisible Influence</h2>
+    <h2>The Invisible Influence</h2>
     <p class="section-intro">How AI shapes what we see, believe and choose.</p>
 
     <div class="grid grid-3">
+      <div class="card">
+        <span class="emoji">🎯</span>
+        <h3>Can AI Manipulate You Without You Noticing?</h3>
+        <p>
+          How personalisation, recommendations and AI responses could influence
+          our decisions.
+        </p>
+        <a href="articles/can-ai-manipulate-you.html" class="card-link">Read more →</a>
+      </div>
       <div class="card">
         <span class="emoji">👁️</span>
         <h3>Reality and Trust</h3>
@@ -498,64 +509,17 @@
         </p>
         <span class="card-coming">Coming soon</span>
       </div>
-      <div class="card">
-        <span class="emoji">🏢</span>
-        <h3>Corporate Control</h3>
-        <p>
-          The direction of this technology is set by a small number of companies.
-          Whose interests are built into the defaults?
-        </p>
-        <span class="card-coming">Coming soon</span>
-      </div>
-      <div class="card">
-        <span class="emoji">🎯</span>
-        <h3>Can AI Manipulate You Without You Noticing?</h3>
-        <p>
-          How personalisation, recommendations and AI responses could influence
-          our decisions.
-        </p>
-        <a href="articles/can-ai-manipulate-you.html" class="card-link">Read more →</a>
-      </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- 02. THE HUMAN CONNECTION -->
+  <!-- THE HUMAN CONNECTION -->
   <section id="human-connection">
-    <h2>02. The Human Connection</h2>
+    <h2>The Human Connection</h2>
     <p class="section-intro">How AI is changing relationships and emotional experiences.</p>
 
     <div class="grid grid-3">
-      <div class="card">
-        <span class="emoji">💭</span>
-        <h3>Emotional Dependence</h3>
-        <p>
-          People are increasingly using AI to explore emotions, personal problems
-          and difficult decisions. It can offer a space to reflect without
-          judgement, but what happens when a system always listens, never tires,
-          and is designed to respond to us?
-        </p>
-        <span class="card-coming">Coming soon</span>
-      </div>
-      <div class="card">
-        <span class="emoji">🤝</span>
-        <h3>Support, Not Substitute</h3>
-        <p>
-          Mental health tools can complement professional care. They are not a
-          replacement for a qualified human.
-        </p>
-        <span class="card-coming">Coming soon</span>
-      </div>
-      <div class="card">
-        <span class="emoji">🌍</span>
-        <h3>Connection</h3>
-        <p>
-          Breaking down language barriers and helping people communicate who
-          otherwise could not.
-        </p>
-        <span class="card-coming">Coming soon</span>
-      </div>
       <div class="card">
         <span class="emoji">💬</span>
         <h3>Why Is It Easier to Talk to AI Than to People?</h3>
@@ -565,45 +529,33 @@
         </p>
         <a href="articles/why-is-it-easier-to-talk-to-ai.html" class="card-link">Read more →</a>
       </div>
+      <div class="card">
+        <span class="emoji">💭</span>
+        <h3>Emotional Dependence</h3>
+        <p>
+          When does emotional support from AI become dependence?
+        </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
+      <div class="card">
+        <span class="emoji">🤝</span>
+        <h3>Support, Not Substitute</h3>
+        <p>
+          AI as a complement to human and professional support, not a replacement.
+        </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- 03. THE THINKING MIND -->
+  <!-- THE THINKING MIND -->
   <section id="thinking-mind">
-    <h2>03. The Thinking Mind</h2>
+    <h2>The Thinking Mind</h2>
     <p class="section-intro">How AI affects thinking, learning and decision-making.</p>
 
     <div class="grid grid-3">
-      <div class="card">
-        <span class="emoji">🧩</span>
-        <h3>Cognitive Dependence</h3>
-        <p>
-          AI can remember information, solve problems and make decisions in
-          seconds. The more we rely on it, the less often we may practise those
-          mental processes ourselves.
-        </p>
-        <span class="card-coming">Coming soon</span>
-      </div>
-      <div class="card">
-        <span class="emoji">🎭</span>
-        <h3>Loss of Agency</h3>
-        <p>
-          What if the most important decisions are made by systems no one fully
-          understands?
-        </p>
-        <span class="card-coming">Coming soon</span>
-      </div>
-      <div class="card">
-        <span class="emoji">📚</span>
-        <h3>Personalised Learning</h3>
-        <p>
-          A patient tutor available at any hour, adapting to the pace of the
-          person learning.
-        </p>
-        <span class="card-coming">Coming soon</span>
-      </div>
       <div class="card">
         <span class="emoji">🧠</span>
         <h3>Are We Outsourcing Our Thinking to AI?</h3>
@@ -613,14 +565,30 @@
         </p>
         <a href="articles/are-we-outsourcing-our-thinking.html" class="card-link">Read more →</a>
       </div>
+      <div class="card">
+        <span class="emoji">🧩</span>
+        <h3>Cognitive Dependence</h3>
+        <p>
+          What happens when we delegate more and more mental tasks.
+        </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
+      <div class="card">
+        <span class="emoji">🎭</span>
+        <h3>Loss of Agency</h3>
+        <p>
+          What happens when we lose decision-making power to automated systems.
+        </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- 04. CREATIVITY AND IDENTITY -->
+  <!-- CREATIVITY AND IDENTITY -->
   <section id="creativity-identity">
-    <h2>04. Creativity and Identity</h2>
+    <h2>Creativity and Identity</h2>
     <p class="section-intro">What AI means for creativity, originality and who we are.</p>
 
     <div class="grid grid-3">
@@ -628,10 +596,8 @@
         <span class="emoji">🎨</span>
         <h3>Creativity</h3>
         <p>
-          AI can help us generate ideas, images and possibilities that we might
-          not have reached alone. But when millions of people draw from the same
-          tools and patterns, could greater creative possibility also lead to
-          less originality?
+          AI as a creative tool and the tension between new possibilities and
+          originality.
         </p>
         <span class="card-coming">Coming soon</span>
       </div>
@@ -639,8 +605,7 @@
         <span class="emoji">✏️</span>
         <h3>The Invisible Editor</h3>
         <p>
-          We stop being able to tell which of our own opinions we actually
-          formed.
+          How to distinguish our own opinions from ideas shaped by AI systems.
         </p>
         <span class="card-coming">Coming soon</span>
       </div>
@@ -658,9 +623,9 @@
 
   <div class="divider"></div>
 
-  <!-- 05. THE FUTURE OF BEING HUMAN -->
+  <!-- THE FUTURE OF BEING HUMAN -->
   <section id="future-human">
-    <h2>05. The Future of Being Human</h2>
+    <h2>The Future of Being Human</h2>
     <p class="section-intro">The questions and choices that will shape our relationship with AI.</p>
 
     <div class="grid grid-3">
@@ -696,12 +661,10 @@
 
   <div class="divider"></div>
 
-  <!-- BEYOND (Choice + FAQ) -->
-  <section id="beyond" class="beyond">
-    <h2>Beyond</h2>
+  <!-- THE CHOICE -->
+  <section id="choice" class="beyond">
+    <h2>The Choice</h2>
     <p class="beyond-subtitle">What do we do with what we know?</p>
-
-    <h3>The Choice</h3>
     <p>
       Assistance and dependence are not the same thing. Read each situation
       below and ask yourself honestly: would you hand this over?
@@ -720,8 +683,13 @@
       There is no score and no diagnosis. The point is simply to notice where
       your own line sits, and whether it moves.
     </p>
+  </section>
 
-    <h3>Frequently Asked Questions</h3>
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <section id="faq" class="beyond">
+    <h2>Frequently Asked Questions</h2>
     <div class="faq">
       <details>
         <summary>Can AI really understand how I feel?</summary>
