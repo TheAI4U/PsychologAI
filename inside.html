@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inside — PsychologAI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="band band-left"></div>
+  <div class="band band-right"></div>
+
+  <div class="page">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">PsychologAI</a>
+    <ul class="nav-links">
+      <li><a href="inside.html">Inside</a></li>
+      <li><a href="utopia.html">Utopia</a></li>
+      <li><a href="dystopia.html">Dystopia</a></li>
+      <li><a href="beyond.html">Beyond</a></li>
+      <li><a href="ai-and-us.html">AI and Us</a></li>
+      <li><a href="final-question.html">Final Question</a></li>
+    </ul>
+  </nav>
+
+  <!-- INSIDE -->
+  <section id="inside">
+    <h1>Inside</h1>
+    <p class="section-intro">What happens within us</p>
+    <p>
+      How AI may influence our mind, emotions and behaviour. We explore topics
+      such as memory, critical thinking, emotional dependence, creativity,
+      identity and decision-making, to understand how our interactions with AI
+      may affect us from within. These are not final answers, but questions we
+      think are worth sitting with.
+    </p>
+
+    <h2>Articles</h2>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="emoji">💬</span>
+        <h3>Why Is It Easier to Talk to AI Than to People?</h3>
+        <p>
+          The constant availability, the fear of judgement, and the difference
+          between feeling heard and being understood.
+        </p>
+        <a href="articles/why-is-it-easier-to-talk-to-ai.html" class="card-link">Read more →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">AI</button>
+
+  <footer>
+    <p>
+      © 2026 PsychologAI · v2026.10<br>
+      Contact: <a href="mailto:hello@example.com">hello@example.com</a>
+    </p>
+  </footer>
+
+  </div><!-- /.page -->
+
+  <script>
+    (function () {
+      var btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>
