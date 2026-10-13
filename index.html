@@ -34,7 +34,7 @@
     position: relative;
   }
 
-  /* ---------- Side bands (Utopia / Dystopia) ---------- */
+  /* ---------- Side bands ---------- */
   .band {
     position: fixed;
     top: 0;
@@ -170,6 +170,12 @@
 
   p { color: var(--text-muted); }
 
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin: 0 0 8px;
+  }
+
   .tagline {
     font-size: clamp(1.1rem, 2.5vw, 1.4rem);
     color: var(--cyan);
@@ -178,6 +184,7 @@
     margin: 0 auto 28px;
     font-weight: 500;
   }
+
   .cta {
     display: inline-block;
     margin-top: 12px;
@@ -196,6 +203,7 @@
     background: var(--violet);
     transform: translateY(-2px);
   }
+
   .lead {
     font-size: 1.15rem;
     color: var(--text);
@@ -216,10 +224,6 @@
     margin-top: 28px;
   }
 
-  .grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .grid-3 {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -229,7 +233,7 @@
   }
 
   @media (max-width: 640px) {
-    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
   }
 
   /* ---------- Cards ---------- */
@@ -239,6 +243,8 @@
     border-radius: var(--radius);
     padding: 22px;
     transition: transform 0.25s, border-color 0.25s, background-color 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
   }
 
   .card:hover {
@@ -248,9 +254,30 @@
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
   }
 
-  .card p { margin: 0; font-size: 0.95rem; }
+  .card p { margin: 0 0 16px; font-size: 0.95rem; }
 
-  .emoji { font-size: 1.6rem; display: block; margin-bottom: 10px; }
+  .card .emoji { font-size: 1.6rem; display: block; margin-bottom: 10px; }
+
+  .card-link {
+    margin-top: auto;
+    color: var(--cyan);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+
+  .card-link:hover {
+    color: var(--violet);
+  }
+
+  .card-coming {
+    margin-top: auto;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.7;
+  }
 
   /* ---------- Choice list ---------- */
   .choice-list {
@@ -420,16 +447,17 @@
   <nav class="nav">
     <span class="nav-brand">PsychologAI</span>
     <ul class="nav-links">
-      <li><a href="#ai-and-us">AI and Us</a></li>
-      <li><a href="#inside">Inside</a></li>
-      <li><a href="#utopia">Utopia</a></li>
-      <li><a href="#dystopia">Dystopia</a></li>
+      <li><a href="#invisible-influence">The Invisible Influence</a></li>
+      <li><a href="#human-connection">The Human Connection</a></li>
+      <li><a href="#thinking-mind">The Thinking Mind</a></li>
+      <li><a href="#creativity-identity">Creativity and Identity</a></li>
+      <li><a href="#future-human">The Future of Being Human</a></li>
       <li><a href="#beyond">Beyond</a></li>
       <li><a href="#final">Final Question</a></li>
     </ul>
   </nav>
 
-  <!-- AI AND US (HERO) -->
+  <!-- HERO -->
   <section id="ai-and-us" class="hero">
     <h1>The Future: AI and Us <em>or</em> AI vs. Us?</h1>
     <p class="tagline">What happens to us when we let AI do more of our thinking?</p>
@@ -441,33 +469,64 @@
     <p class="lead">
       We are not neutral about AI. We have to be part of the change.
     </p>
-    <a href="#inside" class="cta">Start exploring →</a>
+    <a href="#invisible-influence" class="cta">Start exploring →</a>
   </section>
 
   <div class="divider"></div>
 
-  <!-- INSIDE -->
-  <section id="inside">
-    <h2>Inside</h2>
-    <p>
-      Every tool we use changes the way we think. Google Maps made navigation
-      easier, but it also means we rely less on our own memory and sense of
-      direction. AI takes this further: it can remember, create, solve problems
-      and even help us make decisions. What happens when we stop doing some of
-      these things for ourselves?
-    </p>
+  <!-- 01. THE INVISIBLE INFLUENCE -->
+  <section id="invisible-influence">
+    <h2>01. The Invisible Influence</h2>
+    <p class="section-intro">How AI shapes what we see, believe and choose.</p>
 
-    <div class="grid grid-2">
+    <div class="grid grid-3">
       <div class="card">
-        <span class="emoji">🧩</span>
-        <h3>Cognitive Dependence</h3>
+        <span class="emoji">👁️</span>
+        <h3>Reality and Trust</h3>
         <p>
-          AI can remember information, solve problems and make decisions in
-          seconds. The more we rely on it, the less often we may practise those
-          mental processes ourselves. Are we becoming more efficient, or simply
-          doing less thinking?
+          With the rise of AI-generated videos, images and cloned voices, how do
+          we know whether what we see, hear or read was created by a person or a
+          machine?
         </p>
+        <span class="card-coming">Coming soon</span>
       </div>
+      <div class="card">
+        <span class="emoji">🔮</span>
+        <h3>AI as Oracle</h3>
+        <p>
+          What if we stop deciding for ourselves and simply ask the machine?
+        </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
+      <div class="card">
+        <span class="emoji">🏢</span>
+        <h3>Corporate Control</h3>
+        <p>
+          The direction of this technology is set by a small number of companies.
+          Whose interests are built into the defaults?
+        </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
+      <div class="card">
+        <span class="emoji">🎯</span>
+        <h3>Can AI Manipulate You Without You Noticing?</h3>
+        <p>
+          How personalisation, recommendations and AI responses could influence
+          our decisions.
+        </p>
+        <a href="articles/can-ai-manipulate-you.html" class="card-link">Read more →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 02. THE HUMAN CONNECTION -->
+  <section id="human-connection">
+    <h2>02. The Human Connection</h2>
+    <p class="section-intro">How AI is changing relationships and emotional experiences.</p>
+
+    <div class="grid grid-3">
       <div class="card">
         <span class="emoji">💭</span>
         <h3>Emotional Dependence</h3>
@@ -475,10 +534,96 @@
           People are increasingly using AI to explore emotions, personal problems
           and difficult decisions. It can offer a space to reflect without
           judgement, but what happens when a system always listens, never tires,
-          and is designed to respond to us? Are we starting to replace human
-          conversation with a machine?
+          and is designed to respond to us?
         </p>
+        <span class="card-coming">Coming soon</span>
       </div>
+      <div class="card">
+        <span class="emoji">🤝</span>
+        <h3>Support, Not Substitute</h3>
+        <p>
+          Mental health tools can complement professional care. They are not a
+          replacement for a qualified human.
+        </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
+      <div class="card">
+        <span class="emoji">🌍</span>
+        <h3>Connection</h3>
+        <p>
+          Breaking down language barriers and helping people communicate who
+          otherwise could not.
+        </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
+      <div class="card">
+        <span class="emoji">💬</span>
+        <h3>Why Is It Easier to Talk to AI Than to People?</h3>
+        <p>
+          The constant availability, the fear of judgement, and the difference
+          between feeling heard and being understood.
+        </p>
+        <a href="articles/why-is-it-easier-to-talk-to-ai.html" class="card-link">Read more →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 03. THE THINKING MIND -->
+  <section id="thinking-mind">
+    <h2>03. The Thinking Mind</h2>
+    <p class="section-intro">How AI affects thinking, learning and decision-making.</p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="emoji">🧩</span>
+        <h3>Cognitive Dependence</h3>
+        <p>
+          AI can remember information, solve problems and make decisions in
+          seconds. The more we rely on it, the less often we may practise those
+          mental processes ourselves.
+        </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
+      <div class="card">
+        <span class="emoji">🎭</span>
+        <h3>Loss of Agency</h3>
+        <p>
+          What if the most important decisions are made by systems no one fully
+          understands?
+        </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
+      <div class="card">
+        <span class="emoji">📚</span>
+        <h3>Personalised Learning</h3>
+        <p>
+          A patient tutor available at any hour, adapting to the pace of the
+          person learning.
+        </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
+      <div class="card">
+        <span class="emoji">🧠</span>
+        <h3>Are We Outsourcing Our Thinking to AI?</h3>
+        <p>
+          What mental tasks we delegate, and what we should keep practising for
+          ourselves.
+        </p>
+        <a href="articles/are-we-outsourcing-our-thinking.html" class="card-link">Read more →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 04. CREATIVITY AND IDENTITY -->
+  <section id="creativity-identity">
+    <h2>04. Creativity and Identity</h2>
+    <p class="section-intro">What AI means for creativity, originality and who we are.</p>
+
+    <div class="grid grid-3">
       <div class="card">
         <span class="emoji">🎨</span>
         <h3>Creativity</h3>
@@ -488,93 +633,35 @@
           tools and patterns, could greater creative possibility also lead to
           less originality?
         </p>
+        <span class="card-coming">Coming soon</span>
       </div>
       <div class="card">
-        <span class="emoji">👁️</span>
-        <h3>Reality and Trust</h3>
+        <span class="emoji">✏️</span>
+        <h3>The Invisible Editor</h3>
         <p>
-          With the rise of AI-generated videos, images and cloned voices, how do
-          we know whether what we see, hear or read was created by a person or a
-          machine?
+          We stop being able to tell which of our own opinions we actually
+          formed.
         </p>
+        <span class="card-coming">Coming soon</span>
+      </div>
+      <div class="card">
+        <span class="emoji">🪞</span>
+        <h3>The Originality Paradox</h3>
+        <p>
+          More creative tools, less original output? The tension between
+          possibility and sameness.
+        </p>
+        <span class="card-coming">Coming soon</span>
       </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- UTOPIA -->
-  <section id="utopia">
-    <h2>Utopia</h2>
-    <p>
-      AI can also augment human capabilities. The same technology that raises
-      real risks can widen access, support learning and free up time.
-    </p>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <span class="emoji">📚</span>
-        <h3>Personalised learning</h3>
-        <p>
-          A patient tutor available at any hour, adapting to the pace of the
-          person learning.
-        </p>
-      </div>
-      <div class="card">
-        <span class="emoji">♿</span>
-        <h3>Accessibility</h3>
-        <p>
-          Transcription, translation, description and voice tools that open
-          doors for people who were previously excluded.
-        </p>
-      </div>
-      <div class="card">
-        <span class="emoji">🔬</span>
-        <h3>Research and health</h3>
-        <p>
-          Pattern-finding at a scale humans cannot manage, supporting diagnosis
-          and discovery.
-        </p>
-      </div>
-      <div class="card">
-        <span class="emoji">🤝</span>
-        <h3>Support, not substitute</h3>
-        <p>
-          Mental health tools can complement professional care. They are not a
-          replacement for a qualified human.
-        </p>
-      </div>
-      <div class="card">
-        <span class="emoji">⏳</span>
-        <h3>Time</h3>
-        <p>
-          Automating repetitive work can return hours to the things only people
-          can do.
-        </p>
-      </div>
-      <div class="card">
-        <span class="emoji">🌍</span>
-        <h3>Connection</h3>
-        <p>
-          Breaking down language barriers and helping people communicate who
-          otherwise could not.
-        </p>
-      </div>
-    </div>
-
-    <p style="margin-top:32px; font-size:1.05rem; color:var(--text);">
-      Does AI make us less human, or give us more time to be human?
-    </p>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- DYSTOPIA -->
-  <section id="dystopia">
-    <h2>Dystopia</h2>
-    <p class="beyond-subtitle">
-      Will AI be the god we hope will save us, or the beast of the apocalypse?
-    </p>
+  <!-- 05. THE FUTURE OF BEING HUMAN -->
+  <section id="future-human">
+    <h2>05. The Future of Being Human</h2>
+    <p class="section-intro">The questions and choices that will shape our relationship with AI.</p>
 
     <div class="grid grid-3">
       <div class="card">
@@ -584,6 +671,7 @@
           What happens if AI can improve itself faster than humans can
           understand or control?
         </p>
+        <span class="card-coming">Coming soon</span>
       </div>
       <div class="card">
         <span class="emoji">💡</span>
@@ -592,29 +680,7 @@
           If an AI could have subjective experiences, would it deserve rights?
           And who decides?
         </p>
-      </div>
-      <div class="card">
-        <span class="emoji">🔮</span>
-        <h3>AI as Oracle</h3>
-        <p>
-          What if we stop deciding for ourselves and simply ask the machine?
-        </p>
-      </div>
-      <div class="card">
-        <span class="emoji">🎭</span>
-        <h3>Loss of Agency</h3>
-        <p>
-          What if the most important decisions are made by systems no one fully
-          understands?
-        </p>
-      </div>
-      <div class="card">
-        <span class="emoji">🏢</span>
-        <h3>Corporate Control</h3>
-        <p>
-          The direction of this technology is set by a small number of companies.
-          Whose interests are built into the defaults?
-        </p>
+        <span class="card-coming">Coming soon</span>
       </div>
       <div class="card">
         <span class="emoji">🌫️</span>
@@ -623,26 +689,14 @@
           A world that is comfortable, safe, and where nobody thinks for
           themselves anymore.
         </p>
+        <span class="card-coming">Coming soon</span>
       </div>
     </div>
-
-    <h3 style="margin-top:36px;">Imagined Futures</h3>
-    <p>
-      Dystopia is a thought experiment, not a prediction. Each scenario below
-      asks a different question about where a trend could lead if nobody
-      intervened.
-    </p>
-    <ul class="choice-list">
-      <li><strong>The comfortable fog.</strong> Everyone has a personal assistant that answers everything, so no one ever has to sit with an unanswered question.</li>
-      <li><strong>The echo chamber.</strong> Every conversation is tailored so precisely that we never encounter an idea that genuinely challenges us.</li>
-      <li><strong>The invisible editor.</strong> We stop being able to tell which of our own opinions we actually formed.</li>
-      <li><strong>The substitute.</strong> AI becomes the first place people go for comfort, and human relationships become optional.</li>
-    </ul>
   </section>
 
   <div class="divider"></div>
 
-  <!-- BEYOND (CHOICE + FAQ) -->
+  <!-- BEYOND (Choice + FAQ) -->
   <section id="beyond" class="beyond">
     <h2>Beyond</h2>
     <p class="beyond-subtitle">What do we do with what we know?</p>
@@ -725,7 +779,7 @@
 
   <footer>
     <p>
-      PsychologAI, a student project for an AI Introduction Course.<br>
+      © 2026 PsychologAI · v2026.10<br>
       Contact: <a href="mailto:hello@example.com">hello@example.com</a>
     </p>
   </footer>
