@@ -434,6 +434,8 @@ footer a:hover { text-decoration: underline; }
 /* ---------- Article pages ---------- */
 .article {
   max-width: 780px;
+  margin: 0 auto;
+  padding: 100px 24px 60px;
 }
 
 .article h1 {
