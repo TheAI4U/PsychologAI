@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond — PsychologAI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="band band-left"></div>
+  <div class="band band-right"></div>
+
+  <div class="page">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">PsychologAI</a>
+    <ul class="nav-links">
+      <li><a href="inside.html">Inside</a></li>
+      <li><a href="utopia.html">Utopia</a></li>
+      <li><a href="dystopia.html">Dystopia</a></li>
+      <li><a href="beyond.html">Beyond</a></li>
+      <li><a href="ai-and-us.html">AI and Us</a></li>
+      <li><a href="index.html#final">Final Question</a></li>
+    </ul>
+  </nav>
+
+  <!-- BEYOND -->
+  <section id="beyond">
+    <h1>Beyond</h1>
+    <p class="section-intro">Questions we are not sure how to answer yet</p>
+    <p>
+      Moves from understanding AI to reflecting on how we choose to use it.
+      Through practical questions and interactive experiences, it encourages
+      visitors to examine their own habits, boundaries and level of trust in AI.
+      The aim is to promote a more conscious and responsible relationship with
+      technology.
+    </p>
+
+    <h2>The Choice</h2>
+    <p>
+      Assistance and dependence are not the same thing. Read each situation
+      below and ask yourself honestly: would you hand this over?
+    </p>
+
+    <ul class="choice-list">
+      <li>Would you let AI choose your next career?</li>
+      <li>Would you let AI write a difficult personal message for you?</li>
+      <li>Would you let AI decide what news you should read?</li>
+      <li>Would you let AI recommend who you should date?</li>
+      <li>Would you let AI help you make a medical decision?</li>
+      <li>Would you let AI be your first source of emotional support?</li>
+    </ul>
+
+    <p style="margin-top:24px;">
+      There is no score and no diagnosis. The point is simply to notice where
+      your own line sits, and whether it moves.
+    </p>
+
+    <!-- Interactive tests will be added here in a future update -->
+  </section>
+
+  <div class="divider"></div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">AI</button>
+
+  <footer>
+    <p>
+      © 2026 PsychologAI · v2026.10<br>
+      Contact: <a href="mailto:hello@example.com">hello@example.com</a>
+    </p>
+  </footer>
+
+  </div><!-- /.page -->
+
+  <script>
+    (function () {
+      var btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>
