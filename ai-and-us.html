@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI and Us — PsychologAI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="band band-left"></div>
+  <div class="band band-right"></div>
+
+  <div class="page">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">PsychologAI</a>
+    <ul class="nav-links">
+      <li><a href="inside.html">Inside</a></li>
+      <li><a href="utopia.html">Utopia</a></li>
+      <li><a href="dystopia.html">Dystopia</a></li>
+      <li><a href="beyond.html">Beyond</a></li>
+      <li><a href="ai-and-us.html">AI and Us</a></li>
+      <li><a href="final-question.html">Final Question</a></li>
+    </ul>
+  </nav>
+
+  <!-- AI AND US -->
+  <section id="ai-and-us">
+    <h1>AI and Us</h1>
+    <p class="section-intro">About this project</p>
+
+    <h2>About PsychologAI</h2>
+    <p>
+      PsychologAI is an independent project exploring how artificial
+      intelligence may be changing the human mind, our relationships and the way
+      we understand ourselves. It brings together questions about psychology,
+      technology and the future of being human, encouraging people to look
+      beyond what AI can do and consider what it may mean for us.
+    </p>
+
+    <h2>Why this project exists</h2>
+    <p>
+      Artificial intelligence is becoming part of everyday life, influencing how
+      we learn, communicate, make decisions and understand the world around us.
+      This project aims to explore these changes, ask questions that do not
+      always have simple answers, and encourage people to think more deeply
+      about their relationship with AI.
+    </p>
+
+    <h2>What this project is not</h2>
+    <p>
+      PsychologAI is an independent project about AI and the human mind, not a
+      clinical service. It does not provide psychological diagnoses, replace
+      professional advice or claim to have all the answers. It is not intended
+      to create fear about AI or promote technology uncritically. Instead, it
+      aims to create space for curiosity, balanced discussion and informed
+      reflection.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">AI</button>
+
+  <footer>
+    <p>
+      © 2026 PsychologAI · v2026.10<br>
+      Contact: <a href="mailto:hello@example.com">hello@example.com</a>
+    </p>
+  </footer>
+
+  </div><!-- /.page -->
+
+  <script>
+    (function () {
+      var btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>
